@@ -16,7 +16,7 @@ const footerStyle: any = {
 const Footer = () => {
   return (
     <div className="footer-main" style={footerStyle}>
-      <h1>Made with ☕ and ❤️</h1>
+      <h1>Made with <span role="img" aria-label="coffee-emoji">☕</span> and <span role="img" aria-label="heart-emoji">❤️</span></h1>
       {/* TODO:anchor below */}
       <h1>Github LinkedIn</h1> 
     </div>

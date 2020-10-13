@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, Route } from "wouter";
+import { Link } from "wouter";
 
 import COLORS from "../../constants/colors";
 
@@ -19,8 +19,6 @@ const leftSideStyle = {
 
 const rightSideStyle = {
 	display: 'flex',
-	// width: '50vw',
-	// backgroundColor: 'green',
 	alignItems: 'center',
 	justifyContent: 'space-around',
 }
@@ -32,24 +30,23 @@ const navLinkStyle = {
 	fontSize: '1.6em',
 }
 
+
 const Header = () => {
+	const links = ["home", "about", "classes"];
 	return (
 		<div style={headerStyle}>
 			<div style={leftSideStyle}>
 				<h1>VandyCS</h1>
 			</div>
-			<div style={rightSideStyle}>
-				<Link href="/">
-					<a className="link" style={navLinkStyle}>home</a>
-				</Link>
-				<Link href="/about">
-					<a className="link" style={navLinkStyle}>about</a>
-				</Link>
-				<Link href="/classes">
-					<a className="link" style={navLinkStyle}>classes</a>
-				</Link>
+			<div style={rightSideStyle}> 
+				{links.map(link => {
+						link = link.toString().toLowerCase();
+						return (
+							<Link href={`/${link.toString()}`}>
+								<a className="link" style={navLinkStyle}>{link.toString()}</a>
+							</Link>
+					)})}
 			</div>
-
 		</div>
 	)
 }

@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link, Route } from "wouter";
 
 import RoundedCorner from '../RoundedCorner/RoundedCorner';
 
