@@ -1,6 +1,6 @@
 # Vandy CS Wiki
 
-![VUSE Logo](/public/vuse-logo.png)
+![BandyCS Logo](/public/bandycs.png)
 
 ## What is this?
 
