@@ -7,6 +7,9 @@ interface IClassProps {
   desc?: string,
 }
 
+
+
+
 const roundedCornerStyle = {
   backgroundColor: '#121212',
   maxWidth: '20vw',
