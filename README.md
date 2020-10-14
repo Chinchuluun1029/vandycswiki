@@ -6,14 +6,14 @@ A collection of resources and tools to help Vanderbilt students majoring, minori
 
 ## Useful Commands
 
-npm install - Install npm packages needed to run
+`npm install` - Install npm packages needed to run the app.
 
-npm start - Runs the app in the development mode. Open http://localhost:3000 to view it in the browser.
+`npm start` - Runs the app in the development mode. Open http://localhost:3000 to view it in the browser.
 
 ## Inspiration
 
 Just wanted to make a website to track and visually graph all the CS classes offered at Vanderbilt University to easily navigate through the cluster that is Vandy Undergraduate Catalog and Degree Audit system on YES. Website structure is inspired from [The Pitt CS Wiki](https://pittcs.wiki/) page.
 
-## Built with:
+## Built with
 
 [React](https://github.com/facebook/react), [TypeScript](https://github.com/microsoft/TypeScript), [Wouter](https://github.com/molefrog/wouter), will probs add more...
