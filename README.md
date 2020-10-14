@@ -1,5 +1,7 @@
 # Vandy CS Wiki
 
+![VUSE Logo](/public/vuse-logo.png)
+
 ## What is this?
 
 A collection of resources and tools to help Vanderbilt students majoring, minoring, or interested in the Computer Science program offered at Vandy. Will incrementally add features such as class reviews, visual class requirements, etc...
