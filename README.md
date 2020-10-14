@@ -12,6 +12,8 @@ A collection of resources and tools to help Vanderbilt students majoring, minori
 
 `npm start` - Runs the app in the development mode. Open http://localhost:3000 to view it in the browser.
 
+`npm build` - Builds the app, uses react-scripts to make the app ready for deployment.
+
 ## Inspiration
 
 Just wanted to make a website to track and visually graph all the CS classes offered at Vanderbilt University to easily navigate through the cluster that is Vandy Undergraduate Catalog and Degree Audit system on YES. Website structure is inspired from [The Pitt CS Wiki](https://pittcs.wiki/) page.

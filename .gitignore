@@ -23,4 +23,4 @@ yarn-debug.log*
 yarn-error.log*
 
 # vsc
-.vscode
+.vscode/settings.json
