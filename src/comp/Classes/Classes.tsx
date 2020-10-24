@@ -1,20 +1,67 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Class from '../Class/Class';
+import Sidebar from '../Sidebar/Sidebar';
 
+import { Stack, IStackStyles, IStackTokens } from 'office-ui-fabric-react/lib/Stack';
+import { DefaultPalette } from 'office-ui-fabric-react/lib/Styling';
+import { getTheme } from 'office-ui-fabric-react/lib/Styling';
+
+import DagreGraph from 'dagre-d3-react';
+
+import {
+  DocumentCard,
+  DocumentCardActivity,
+  DocumentCardDetails,
+  DocumentCardPreview,
+  DocumentCardTitle,
+  IDocumentCardPreviewProps,
+  DocumentCardType,
+  IDocumentCardActivityPerson,
+} from 'office-ui-fabric-react/lib/DocumentCard';
+
+import THEME from '../../constants/colors';
+
+const itemStyles: React.CSSProperties = {
+  alignItems: 'center',
+  background: DefaultPalette.themePrimary,
+  color: DefaultPalette.white,
+  display: 'flex',
+  height: 50,
+  justifyContent: 'center',
+  width: 50,
+};
+
+
+const theme = getTheme();
+const { palette, fonts } = theme;
 
 const classesStyle = {
   display: "flex",
-  justifyContent: 'center',
-  alignItems: 'center',
   flexDirection: 'column' as "column",
-  width: "100vw",
+  alignText: 'center',
+  maxWidth: "100vw",
   minHeight: "60vh",
-  backgroundColor: "#fff",
+  backgroundColor: THEME.palette.neutralLight,
+  padding: '5em',
+}
+
+const classesContentStyle = {
+  display: "flex",
+  justifyContent: 'space-around',
 }
 
 const classComponentStyle = {
-  display: "flex",
-  flexDirection: 'row' as "row",
+  display: 'flex',
+  flexFlow: 'row wrap',
+  justifyContent: 'space-around',
+  alignItems: 'center',
+  flexBasis: 'auto',
+}
+
+const sidebarStyle = {
+  minWidth: '35vw',
+  maxHeight: '60vh',
+  background: '#0000ff',
 }
 
 interface IMap<T> {
@@ -26,11 +73,6 @@ enum ESemester {
   Spring = "SPRING",
   Summer = "SUMMER",
   Fall = "FALL",
-}
-
-enum EConj {
-  OR = "OR",
-  AND = "AND"
 }
 
 interface IClass {
@@ -54,6 +96,7 @@ interface IReqStatus {
 const makeReq: any = (code: number, conj: "OR" | "AND") => {
   return {code: code, conj: conj};
 }
+
 
 const csClasses: IMap<IClass> = {
   "CS1101": {
@@ -79,13 +122,179 @@ const csClasses: IMap<IClass> = {
   }
 }
 
+
+const wrapStackTokens: IStackTokens = { childrenGap: 10 };
+
+const themedLargeStackTokens: IStackTokens = {
+  childrenGap: 'l1',
+  padding: 'l1',
+};
+
 const Classes = (props: any) => {
+
+  const [showSidebar, setShowSidebar] = useState(false);
+
+  const stackStyles: IStackStyles = {
+    root: {
+      display: 'flex',
+      height: '70vh',
+      width: '70vw',
+    },
+  };
+
+  const handleSidebar = (e: any) => {
+    e.preventDefault();
+    setShowSidebar(!showSidebar);
+  }
+
+  const documentCardStyles = {
+    root: {
+      maxWidth: '3em',
+      backgroundColor: THEME.palette.neutralLight,
+      border: `5px solid ${THEME.palette.neutralPrimary}`,
+      borderRadius: '0px',
+      // boxShadow: theme.effects.elevation64,
+      padding: '25px',
+      margin: 'auto',
+      selectors: {
+        ':hover': {
+          transform: 'translate(-10px, -10px)', //TODO: fix the transform back issue. use ReactTransitionGroup?
+          transition: 'all .35s ease',
+          border: `6px solid ${THEME.palette.neutralPrimary}`,
+          boxShadow: `10px 10px ${THEME.palette.neutralPrimary}`,
+        },
+        ':hover::after': {
+          border: '0px',
+        },
+      }
+    },
+  }
+
+  const documentCardDetailsStyles = {
+    root: {
+      // maxWidth: '2em',
+    }
+  }
+
+  const documentCardTitleStyles = {
+    root: {
+      color: '#fff',
+    }
+  }
+
+  const previewPropsUsingIcon: IDocumentCardPreviewProps = {
+    previewImages: [
+      {
+        previewIconProps: {
+          iconName: 'OpenFile',
+          styles: { root: { fontSize: fonts.superLarge.fontSize, color: palette.white } },
+        },
+        width: 44,
+      },
+    ],
+    styles: { previewIcon: { backgroundColor: palette.themePrimary } },
+  };
+
   return (
     <div style={classesStyle}>
-      <h1>Classes</h1>
-      <div style={classComponentStyle}>
-        <Class name="CS1101" code={2201} desc="lorem ipsum" />
-        <Class name="CS2201" />
+      <div style={classesContentStyle}>
+        <div style={classComponentStyle}>
+          <Stack 
+            horizontal
+            wrap 
+            styles={stackStyles} 
+            tokens={themedLargeStackTokens}
+            horizontalAlign="end"
+            verticalAlign="space-between"
+          >
+            <DocumentCard
+              type={DocumentCardType.compact}
+              onClick={(e) => handleSidebar(e)}
+              styles={documentCardStyles}
+            >
+              <DocumentCardDetails styles={documentCardDetailsStyles}>
+                <DocumentCardTitle styles={documentCardTitleStyles} title="CS1101" shouldTruncate />
+              </DocumentCardDetails>
+            </DocumentCard>
+
+            <DocumentCard
+              type={DocumentCardType.compact}
+              onClick={(e) => handleSidebar(e)}
+              styles={documentCardStyles}
+            >
+              <DocumentCardDetails>
+                <DocumentCardTitle styles={documentCardTitleStyles} title="CS1101" shouldTruncate />
+              </DocumentCardDetails>
+            </DocumentCard>
+
+            <DocumentCard
+              type={DocumentCardType.compact}
+              onClick={(e) => handleSidebar(e)}
+              styles={documentCardStyles}
+            >
+              <DocumentCardDetails>
+                <DocumentCardTitle styles={documentCardTitleStyles} title="CS1101" shouldTruncate />
+              </DocumentCardDetails>
+            </DocumentCard>
+
+            <DocumentCard
+              type={DocumentCardType.compact}
+              onClick={(e) => handleSidebar(e)}
+              styles={documentCardStyles}
+            >
+              <DocumentCardDetails>
+                <DocumentCardTitle styles={documentCardTitleStyles} title="CS1101" shouldTruncate />
+              </DocumentCardDetails>
+            </DocumentCard>
+
+            <DocumentCard
+              type={DocumentCardType.compact}
+              onClick={(e) => handleSidebar(e)}
+              styles={documentCardStyles}
+            >
+              <DocumentCardDetails>
+                <DocumentCardTitle styles={documentCardTitleStyles} title="CS1101" shouldTruncate />
+              </DocumentCardDetails>
+            </DocumentCard>
+            <DocumentCard
+              type={DocumentCardType.compact}
+              onClick={(e) => handleSidebar(e)}
+              styles={documentCardStyles}
+            >
+              <DocumentCardDetails>
+                <DocumentCardTitle styles={documentCardTitleStyles} title="CS1101" shouldTruncate />
+              </DocumentCardDetails>
+            </DocumentCard>
+
+            <DocumentCard
+              type={DocumentCardType.compact}
+              onClick={(e) => handleSidebar(e)}
+              styles={documentCardStyles}
+            >
+              <DocumentCardDetails>
+                <DocumentCardTitle styles={documentCardTitleStyles} title="CS1101" shouldTruncate />
+              </DocumentCardDetails>
+            </DocumentCard>
+            <DocumentCard
+              type={DocumentCardType.compact}
+              onClick={(e) => handleSidebar(e)}
+              styles={documentCardStyles}
+            >
+              <DocumentCardDetails>
+                <DocumentCardTitle styles={documentCardTitleStyles} title="CS1101" shouldTruncate />
+              </DocumentCardDetails>
+            </DocumentCard>
+        {
+          showSidebar ?
+          <div style={sidebarStyle}>
+          </div>
+          :
+          null
+        }
+        <div>
+    </div>
+          </Stack>
+        </div>
       </div>
     </div>
   )

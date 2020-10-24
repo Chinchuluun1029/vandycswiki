@@ -1,6 +1,6 @@
 import React from 'react';
 
-import COLORS from '../../constants/colors';
+import THEME from '../../constants/colors';
 
 import './RoundedCorner.css';
 
@@ -8,14 +8,14 @@ const roundedCornerStyle = {
   backgroundColor: '#121212',
   width: '50vw',
   minHeight: '25vh',
-  border: `5px solid ${COLORS.cyan}`,
+  border: `5px solid ${THEME.palette.themePrimary}`,
   borderRadius: '25px',
   padding: '25px',
   margin: 'auto',
   marginTop: '-100px',
   terminal: {
     fontFamily: 'Courier new',
-    color: COLORS.cyan,
+    color: THEME.palette.themePrimary,
   },
 }
 

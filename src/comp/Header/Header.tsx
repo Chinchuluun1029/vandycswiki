@@ -1,11 +1,11 @@
 import React from "react";
 import { Link } from "wouter";
 
-import COLORS from "../../constants/colors";
+import THEME from "../../constants/colors";
 
 
 const headerStyle: any = {
-	backgroundColor: COLORS.darkGray,
+	backgroundColor: THEME.palette.black,
 	padding: '1.2em',
 	display: 'flex',
 	flexDirection: 'row',
@@ -24,7 +24,7 @@ const rightSideStyle = {
 }
 
 const navLinkStyle = {
-	color: COLORS.cyan,
+	color: THEME.palette.themePrimary,
 	marginRight: '2em',
 	textDecoration: 'none',
 	fontSize: '1.6em',
@@ -32,7 +32,7 @@ const navLinkStyle = {
 
 
 const Header = () => {
-	const links = ["home", "about", "classes"];
+	const links = ["home", "about", "classes", "graph"];
 	return (
 		<div style={headerStyle}>
 			<div style={leftSideStyle}>

@@ -1,9 +1,9 @@
 import React from "react";
 
-import COLORS from '../../constants/colors'; 
+import THEME from '../../constants/colors'; 
 
 const footerStyle: any = {
-  backgroundColor: COLORS.darkGray,
+  backgroundColor: THEME.palette.black,
   padding: '1.2em',
   fontSize: '0.6em',
   width: '100vw',

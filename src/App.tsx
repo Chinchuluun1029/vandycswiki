@@ -7,6 +7,7 @@ import Footer from './comp/Footer/Footer';
 import About from './comp/About/About';
 import Landing from './comp/Landing/Landing';
 import Classes from './comp/Classes/Classes';
+import Graph from './comp/Graph/Graph';
 
 import './App.css';
 
@@ -25,6 +26,9 @@ function App() {
       </Route>
       <Route path="/classes">
         <Classes />
+      </Route>
+      <Route path="/graph">
+        <Graph />
       </Route>
       <Footer />
     </div>
