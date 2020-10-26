@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import Class from '../Class/Class';
-import Sidebar from '../Sidebar/Sidebar';
 
 import { Stack, IStackStyles, IStackTokens } from 'office-ui-fabric-react/lib/Stack';
 import { DefaultPalette } from 'office-ui-fabric-react/lib/Styling';

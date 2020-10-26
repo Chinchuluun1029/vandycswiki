@@ -9,6 +9,8 @@ import Landing from './comp/Landing/Landing';
 import Classes from './comp/Classes/Classes';
 import Graph from './comp/Graph/Graph';
 
+import LINKS from "./constants/links";
+
 import './App.css';
 
 function App() {

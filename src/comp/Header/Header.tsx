@@ -3,6 +3,8 @@ import { Link } from "wouter";
 
 import THEME from "../../constants/colors";
 
+import LINKS from "../../constants/links";
+
 
 const headerStyle: any = {
 	backgroundColor: THEME.palette.black,
@@ -10,7 +12,7 @@ const headerStyle: any = {
 	display: 'flex',
 	flexDirection: 'row',
 	justifyContent: 'space-between',
-	fontFamily: "Courier New",
+	fontFamily: 'Courier New',
 	fontWeight: 700,
 }
 
@@ -28,24 +30,25 @@ const navLinkStyle = {
 	marginRight: '2em',
 	textDecoration: 'none',
 	fontSize: '1.6em',
+	cursor: 'pointer',
 }
 
 
 const Header = () => {
-	const links = ["home", "about", "classes", "graph"];
 	return (
 		<div style={headerStyle}>
 			<div style={leftSideStyle}>
 				<h1>VandyCS</h1>
 			</div>
 			<div style={rightSideStyle}> 
-				{links.map(link => {
-						link = link.toString().toLowerCase();
-						return (
-							<Link href={`/${link.toString()}`}>
-								<a className="link" style={navLinkStyle}>{link.toString()}</a>
-							</Link>
-					)})}
+				{LINKS.map(link => {
+					link = link.toString().toLowerCase();
+					return (
+						<Link href={`/${link.toString()}`}>
+							<span style={navLinkStyle}>{link.toString()}</span>
+						</Link>
+					)
+				})}
 			</div>
 		</div>
 	)
