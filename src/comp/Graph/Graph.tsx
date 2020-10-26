@@ -3,6 +3,12 @@ import React from 'react';
 
 import DagreGraph from 'dagre-d3-react';
 
+import "./Graph.css";
+
+const graphStyle = {
+  backgroundColor: '#fff',
+}
+
 const Graph = () => {
     interface d3Node {
       id: string,
@@ -22,15 +28,35 @@ const Graph = () => {
       {
         id: "1",
         label: "<h3>Node 1</h3>",
-        labelType: "html"
+        labelType: "html",
+        config: {
+          style: 'fill: #afa',
+          width: 50,
+          rx: 5,
+          ry: 5,
+        }
       },
       {
         id: "2",
         label: "<h3>Node 2</h3>",
         labelType: "html",
         config: {
-                style: 'fill: #afa'
-            }
+          style: 'fill: #afa',
+          width: 50,
+          rx: 5,
+          ry: 5,
+        }
+      },
+      {
+        id: "3",
+        label: "<h3>Node 3</h3>",
+        labelType: "html",
+        config: {
+          style: 'fill: #b0a',
+          width: 50,
+          rx: 5,
+          ry: 5,
+        }
       }
     ]
     const options = {
@@ -43,15 +69,16 @@ const Graph = () => {
       {
         source: '1',
         target: '2',
-        label: 'TO',
-        config: {
-                arrowheadStyle: 'display: none',
-                style: 'fill:none'
-        }
+        class: "coreq",
+      },
+      {
+        source: '1',
+        target: '3',
+        class: "prereq",
       },
     ]
     return (
-        <div>
+        <div style={graphStyle}>
             <DagreGraph
             nodes={nodes}
             links={links}

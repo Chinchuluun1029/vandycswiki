@@ -1,0 +1,25 @@
+.course-graph text {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serf;
+    font-size: 15px;
+    fill: black;
+}
+.course-graph .node rect {
+    stroke: black;
+    fill: #ececec;
+    stroke-width: 2px;
+}
+.course-graph .edgePath path {
+    stroke: #757575;
+    fill: #757575;
+    stroke-width: 1.5px;
+}
+.course-graph .edgePath.coreq path {
+    stroke-dasharray: 5, 5;
+}
+.course-graph .node:hover text, .course-graph .node.active text {
+    fill: white;
+}
+.course-graph .node:hover rect, .course-graph .node.active rect {
+    fill: #ffb81d;
+    stroke: #a57306;
+}

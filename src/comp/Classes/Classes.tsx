@@ -223,7 +223,7 @@ const Classes = (props: any) => {
               styles={documentCardStyles}
             >
               <DocumentCardDetails>
-                <DocumentCardTitle styles={documentCardTitleStyles} title="CS1101" shouldTruncate />
+                <DocumentCardTitle styles={documentCardTitleStyles} title="CS201" shouldTruncate />
               </DocumentCardDetails>
             </DocumentCard>
 
