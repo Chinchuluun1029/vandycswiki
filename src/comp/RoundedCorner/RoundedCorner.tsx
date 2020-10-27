@@ -14,7 +14,7 @@ const roundedCornerStyle = {
   margin: 'auto',
   marginTop: '-100px',
   terminal: {
-    fontFamily: 'Courier new',
+    fontFamily: 'Courier New',
     color: THEME.palette.themePrimary,
   },
 }
